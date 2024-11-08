@@ -1,24 +1,24 @@
-// components/LandingPageComponents/Section1.js
 "use client";
-import { useState } from 'react';
-import { HiSave } from "react-icons/hi";
+import { useState } from "react";
+import { FaBookmark } from "react-icons/fa";
 import { IoIosNotificationsOutline } from "react-icons/io";
-import AdBlock1 from './AdBlock1';
+import AdBlock1 from "./AdBlock1";
+import Image from "next/image";
 
 export default function Section1() {
-  const [searchInput, setSearchInput] = useState('');
+  const [searchInput, setSearchInput] = useState("");
 
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchInput.trim()) {
-      console.log('Searching for:', searchInput);
+      console.log("Searching for:", searchInput);
     }
   };
 
   return (
     <section
       className="relative h-screen bg-cover bg-center text-slate-950 flex flex-col justify-center"
-      style={{ backgroundImage: 'url(https://s3-alpha-sig.figma.com/img/9ddf/2451/54d8dc2623ee9b1c6684edfd899ca0bd?Expires=1730678400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=JiqL9aIF9BzzSkHsqx5TXl0b3Yh5C9Ke2BMtCxo45l2rg8CgMHpYAniAVREy8QRTh-zQfPelLwH~WQ3IS4Gmayjut2-rDcNXUGe8lNTrAt114MVi6PNOWfnx7mRw5Qo~Qeu4m~6-5EJP10CBlVfRZTSp4kTaQawLBXAPo2b35eugHNyBl3Mkrac2UKzUcXuqwIocFWs4e1mdSOnhNrRkJPiawkJQP6x9CRH72dIpWTGZLBR5hqAIh8ocP3v1JTonPtyFrqUshNBuq4z91K2-R4J56lQ8l4MGNIkM1s7P~Kf3EXCX-TzK3nU1nXt9WD941STjvBPnWRdM-g~y72W0lA__)' }}
+      style={{ backgroundImage: "url(/bg1.png)" }}
     >
       {/* Top layer with black transparent background */}
       <div className="absolute top-0 left-0 right-0 bg-black bg-opacity-60 z-10 p-4">
@@ -27,58 +27,81 @@ export default function Section1() {
           <div className="flex space-x-4">
             <button
               aria-label="Explore"
-              className="bg-white text-gray-700 px-4 py-2 rounded-md shadow-md hover:bg-gray-100 transition-all duration-300"
+              className="bg-blue-800 text-white px-4 py-2 rounded-md shadow-md hover:bg-blue-900 transition-all duration-300 flex items-center space-x-2"
             >
-              Explore
+              <span>Explore</span>
+              <svg
+                className="w-3 h-3"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
             </button>
             <button
               aria-label="College Predictor"
-              className="bg-white text-gray-700 px-4 py-2 rounded-md shadow-md hover:bg-gray-100 transition-all duration-300"
+              className="bg-blue-800 text-white px-4 py-2 rounded-md shadow-md hover:bg-blue-900 transition-all duration-300 flex items-center space-x-2"
             >
-              College Predictor
+              <Image src="/cplogo.svg" alt="College Predictor Logo" width={20} height={20} />
+              <span>College Predictor</span>
             </button>
           </div>
 
-          {/* Top Center: Search Bar */}
           <div className="flex-grow flex justify-center">
             <form
               onSubmit={handleSearch}
-              className="flex items-center bg-white w-full max-w-lg rounded-md overflow-hidden"
+              className="flex items-center bg-white w-full max-w-lg rounded-md overflow-hidden shadow-md"
             >
               <input
                 type="text"
                 className="flex-grow px-4 py-2 focus:outline-none"
-                placeholder="Search..."
+                placeholder="Search Colleges or Courses"
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
                 aria-label="Search"
               />
               <button
                 type="submit"
-                className="px-4 py-2 text-white bg-indigo-600 hover:bg-indigo-700 transition-all duration-300"
+                className="px-4 py-3 text-white bg-blue-600 hover:bg-blue-700 transition-all duration-300 flex items-center justify-center"
               >
-                Search
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"
+                  />
+                </svg>
               </button>
             </form>
           </div>
 
-          {/* Top Right: Save, Notifications, Contact Us */}
-          <div className="flex space-x-4">
+          {/* Top Right: Bookmark, Notifications with Alert, Contact Us */}
+          <div className="flex space-x-4 items-center">
             <button
-              aria-label="Save"
+              aria-label="Bookmark"
               className="bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition-all duration-300"
             >
-              <HiSave size={20} />
+              <FaBookmark size={20} />
             </button>
             <button
               aria-label="Notifications"
-              className="bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition-all duration-300"
+              className="relative bg-white p-2 rounded-full shadow-md hover:bg-gray-100 transition-all duration-300"
             >
               <IoIosNotificationsOutline size={20} />
+              <span className="absolute top-0 right-0 h-2 w-2 bg-red-600 rounded-full"></span>
             </button>
             <button
               aria-label="Contact Us"
-              className="bg-white text-gray-700 px-4 py-2 rounded-md shadow-md hover:bg-gray-100 transition-all duration-300"
+              className="bg-yellow-500 text-white px-4 py-2 rounded-md shadow-md hover:bg-yellow-600 transition-all duration-300"
             >
               Contact Us
             </button>
@@ -89,18 +112,29 @@ export default function Section1() {
       {/* Center-Left Text and Get Started Button */}
       <div className="absolute left-8 md:left-16 top-1/2 transform -translate-y-1/2 space-y-4 text-center md:text-left z-10">
         <h3 className="text-lg md:text-xl font-medium text-white">
-          Shaping a sustainable future
+          Shaping Sustainable Futures,
         </h3>
         <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white py-4">
-            Discover College based <br/> on your unique path
+          Discover Colleges Based on Your Unique Path
         </h1>
         <button
-          className="bg-indigo-600 px-6 py-3 rounded-md hover:bg-indigo-700 transition-all duration-300 text-white mt-4"
+          className="bg-blue-600 px-6 py-3 rounded-md hover:bg-blue-700 transition-all duration-300 text-white flex items-center space-x-2"
         >
-          Get Started
+          <span>Get Started</span>
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 5l7 7-7 7M5 12h14" />
+          </svg>
         </button>
       </div>
-      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full">
+
+      {/* Bottom Carousel */}
+      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full bg-black bg-opacity-60 text-white text-center py-2">
         <AdBlock1 />
       </div>
     </section>

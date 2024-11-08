@@ -31,7 +31,7 @@ const AdBlock1 = () => {
   };
 
   return (
-    <div className="relative bg-black bg-opacity-60 text-white py-4 px-6 rounded-md flex justify-center items-center">
+    <div className="relative  text-white py-4 px-6 rounded-md flex justify-center items-center">
       {/* Arrow Left */}
       <button
         onClick={handlePrev}
