@@ -21,7 +21,7 @@ const AdBlock2 = () => {
         <p className="text-gray-500">Start Your Future Today!</p>
       </div>
       <div className="flex-shrink-0">
-        <button className="bg-yellow-500 text-white px-6 py-3 mr-6 rounded-md hover:bg-yellow-600 flex items-center space-x-2">
+        <button className="bg-yellow-500  text-white px-6 py-3 mr-6 rounded-md hover:bg-yellow-600 flex items-center space-x-2">
           <span>Apply Now</span>
           <FaArrowRight />
         </button>
