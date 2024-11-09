@@ -2,9 +2,15 @@
 import Image from 'next/image';
 import React from 'react';
 
-const Testimony = ({ stars = 5, comment, userName, userStream, profilePic }) => {
+const Testimony = ({
+  stars = 5,
+  comment,
+  userName,
+  userStream,
+  profilePic,
+}) => {
   return (
-    <div className="bg-white shadow-lg rounded-lg p-6 max-w-md mx-auto">
+    <div className="bg-white shadow-lg rounded-md p-6 max-w-md mx-auto">
       {/* Stars Section */}
       <div className="flex items-center mb-4">
         {/* Render stars */}
@@ -40,7 +46,7 @@ const Testimony = ({ stars = 5, comment, userName, userStream, profilePic }) => 
           width={12}
           height={12}
         />
-        
+
         {/* User Info */}
         <div>
           <p className="font-semibold text-gray-800">{userName}</p>

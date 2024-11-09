@@ -1,7 +1,7 @@
 // components/PopularCourses.js
 export default function PopularCourses() {
   return (
-    <div className="max-w-sm mx-auto bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
+    <div className="max-w-sm mx-auto bg-white shadow-lg rounded-md overflow-hidden border border-gray-200">
       <div className="bg-purple-100 p-4 flex justify-between items-center">
         <div>
           <h2 className="text-lg font-bold text-gray-900">Popular Courses</h2>
@@ -37,7 +37,7 @@ export default function PopularCourses() {
         ].map(({ course, icon }) => (
           <div
             key={course}
-            className="flex items-center justify-between border border-gray-300 rounded-lg py-2 px-3 hover:bg-gray-200"
+            className="flex items-center justify-between border border-gray-300 rounded-md py-2 px-3 hover:bg-gray-200"
           >
             <span className="text-gray-700">{course}</span>
             <span>{icon}</span>
@@ -46,7 +46,7 @@ export default function PopularCourses() {
       </div>
 
       <div className="flex justify-center mt-4 mb-4">
-        <button className="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700">
+        <button className="bg-blue-600 text-white px-4 py-2 rounded-md font-semibold hover:bg-blue-700">
           Explore Programs
         </button>
       </div>

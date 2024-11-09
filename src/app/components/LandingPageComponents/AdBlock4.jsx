@@ -9,14 +9,14 @@ const AdBlock4 = () => {
           alt="Ad 4"
           width={200}
           height={200}
-          objectFit="contain"
+         
         />
         <Image
           src="/adblock4trophy.png"
           alt="Ad 4"
           width={90}
           height={90}
-          objectFit="contain"
+         
           className="absolute top-1/2 -translate-y-1/2 left-[45%] -translate-x-1/2"
         />
       </div>
