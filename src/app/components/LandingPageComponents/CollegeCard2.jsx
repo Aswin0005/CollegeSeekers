@@ -13,7 +13,7 @@ const CollegeCard = ({
   fees,
 }) => {
   return (
-    <div className="max-w-sm bg-white rounded-md shadow-md overflow-hidden border border-gray-200">
+    <div className="w-96 bg-white rounded-md shadow-md overflow-hidden border border-gray-200">
       {/* Image Section */}
       <div className="relative">
         <Image

@@ -7,6 +7,7 @@ import Footer from './components/LandingPageComponents/Footer';
 import Section5 from './components/LandingPageComponents/Section_5';
 import Testimonials from './components/LandingPageComponents/Section_5';
 import CollegeSteps from './components/LandingPageComponents/section6';
+import CollegeStepsMobile from './components/LandingPageComponents/collegeStepsMobile';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Section1 />
       <Section_2 />
       <CollegeSteps />
+      <CollegeStepsMobile />
       <Section3 />
       <Section4 />
       <Testimonials />

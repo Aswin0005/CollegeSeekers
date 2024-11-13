@@ -1,7 +1,7 @@
 // components/PopularCourses.js
 export default function PopularCourses() {
   return (
-    <div className="max-w-sm mx-auto bg-white shadow-lg rounded-md overflow-hidden border border-gray-200">
+    <div className="min-w-[320px] md:max-w-sm mx-auto bg-white shadow-lg rounded-md overflow-hidden border border-gray-200">
       <div className="bg-purple-100 p-4 flex justify-between items-center">
         <div>
           <h2 className="text-lg font-bold text-gray-900">Popular Courses</h2>

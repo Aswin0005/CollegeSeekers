@@ -11,7 +11,7 @@ export default function Footer() {
         </h2>
 
         {/* Input Fields */}
-        <div className="flex justify-center space-x-4">
+        <div className="flex flex-col md:flex-row justify-center md:space-x-4 p-2 max-md:gap-4">
           <input
             type="text"
             placeholder="Name"

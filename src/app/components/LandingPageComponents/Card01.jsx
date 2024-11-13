@@ -4,7 +4,7 @@ import React from 'react';
 const Card = ({ imagePath, text, textColor, cardColor }) => {
   return (
     <div 
-      className={`flex flex-col items-center justify-center shadow-xl p-8 border-black rounded-md`} 
+      className={`flex flex-col items-center justify-center shadow-xl p-8 border-black rounded-md max-sm:min-w-72`} 
       style={{ backgroundColor: cardColor }}
     >
       <Image 

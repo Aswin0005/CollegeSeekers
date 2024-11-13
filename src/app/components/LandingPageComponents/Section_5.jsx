@@ -80,13 +80,13 @@ const Testimonials = () => {
 
   const scrollLeft = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: -350, behavior: 'smooth' });
+      scrollRef.current.scrollBy({ left: -334, behavior: 'smooth' }); // Scroll one card at a time
     }
   };
 
   const scrollRight = () => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: 350, behavior: 'smooth' });
+      scrollRef.current.scrollBy({ left: 334, behavior: 'smooth' }); // Scroll one card at a time
     }
   };
 
@@ -103,7 +103,7 @@ const Testimonials = () => {
           {/* Left Arrow */}
           {canScrollLeft && (
             <button
-              className="absolute left-0 z-10 p-2 text-gray-500 hover:text-gray-700 w-10 h-10 rounded-full bg-white flex justify-center items-center"
+              className="absolute left-0 z-10 p-2 text-gray-500 hover:text-gray-700 w-10 h-10 rounded-full bg-white flex justify-center items-center shadow-lg"
               onClick={scrollLeft}
             >
               <FiChevronLeft size={30} />
@@ -113,12 +113,13 @@ const Testimonials = () => {
           <div
             ref={scrollRef}
             onScroll={handleScroll}
-            className="flex gap-6 overflow-x-auto scrollbar-hide"
+            className="flex gap-6 overflow-x-auto no-scrollbar p-2 overflow-y-hidden
+            "
           >
             {testimonials.map((testimonial) => (
               <div
                 key={testimonial.id}
-                className={`min-w-[300px] md:min-w-[350px] p-6 rounded-xl shadow-lg ${testimonial.backgroundColor} transition-transform transform hover:-translate-y-1`}
+                className={`min-w-[310px] p-6 rounded-xl shadow-lg ${testimonial.backgroundColor} transition-transform transform hover:-translate-y-1`}
               >
                 <div className="flex items-center mb-3">
                   {[...Array(testimonial.stars)].map((_, index) => (
@@ -153,7 +154,7 @@ const Testimonials = () => {
           {/* Right Arrow */}
           {canScrollRight && (
             <button
-              className="absolute right-0 z-10 p-2 text-gray-500 hover:text-gray-700 w-10 h-10 rounded-full bg-white flex justify-center items-center"
+              className="absolute right-0 z-10 p-2 text-gray-500 hover:text-gray-700 w-10 h-10 rounded-full bg-white flex justify-center items-center shadow-lg"
               onClick={scrollRight}
             >
               <FiChevronRight size={30} />

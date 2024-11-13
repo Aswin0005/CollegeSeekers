@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const AdBlock3 = () => {
   return (
-    <div className="flex items-center justify-between bg-gray-100 mt-10 drop-shadow-md">
+    <div className="hidden md:flex items-center justify-between bg-gray-100 mt-10 drop-shadow-md">
       <div className="ml-12 max-w-xl">
         <h1 className="text-2xl font-bold mb-2">Why Pursue Engineering?</h1>
         <p className="text-gray-700 mb-4">

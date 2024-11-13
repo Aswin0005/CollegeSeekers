@@ -1,6 +1,7 @@
-"use client";
-import { useState } from "react";
-import Image from "next/image";
+'use client';
+import { useState } from 'react';
+import Image from 'next/image';
+import { FiSearch, FiBell, FiUser } from 'react-icons/fi';
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,6 +11,7 @@ export default function NavBar() {
     career: false,
     aboutUs: false,
     contactUs: false,
+    search: false, // Added for the search dropdown
   });
 
   const toggleDropdown = (menu) => {
@@ -23,116 +25,6 @@ export default function NavBar() {
     <nav className="bg-[#2A1EB3] shadow-md text-white z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <Image src="/logo.svg" alt="College Seekers Logo" width={153} height={47} />
-          </div>
-
-          {/* Menu for larger screens */}
-          <div className="hidden md:flex items-center space-x-8">
-            <div className="relative">
-              <button
-                onClick={() => toggleDropdown("colleges")}
-                className="hover:text-yellow-300 flex items-center space-x-1"
-              >
-                <span>Colleges</span>
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-            </div>
-
-            <div className="relative">
-              <button
-                onClick={() => toggleDropdown("courses")}
-                className="hover:text-yellow-300 flex items-center space-x-1"
-              >
-                <span>Courses</span>
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-            </div>
-
-            <div className="relative">
-              <button
-                onClick={() => toggleDropdown("career")}
-                className="hover:text-yellow-300 flex items-center space-x-1"
-              >
-                <span>Career</span>
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-              {isDropdownOpen.career && (
-                <div className="absolute mt-2 w-48 bg-white text-black shadow-lg rounded-md">
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-yellow-50"
-                  >
-                    Option 1
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-yellow-50"
-                  >
-                    Option 2
-                  </a>
-                </div>
-              )}
-            </div>
-
-            <a href="#" className="hover:text-yellow-300">
-              About Us
-            </a>
-            <a href="#" className="hover:text-yellow-300">
-              Contact Us
-            </a>
-          </div>
-
-          {/* Buttons */}
-          <div className="hidden md:flex space-x-4">
-            <button className="bg-yellow-500 text-white px-4 py-2 rounded-md hover:bg-yellow-600">
-              Register
-            </button>
-            <button className="border border-white text-white px-4 py-2 rounded-md hover:bg-yellow-500 hover:text-white">
-              Log In
-            </button>
-          </div>
-
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <button
@@ -155,8 +47,96 @@ export default function NavBar() {
               </svg>
             </button>
           </div>
+
+          {/* Logo */}
+          <div className="flex items-center space-x-2">
+            <Image
+              src="/logo.svg"
+              alt="College Seekers Logo"
+              width={153}
+              height={47}
+            />
+          </div>
+
+          {/* Menu for larger screens */}
+          <div className="hidden md:flex items-center space-x-8">
+            {/* Dropdown buttons */}
+            {['colleges', 'courses', 'career'].map((menu) => (
+              <div className="relative" key={menu}>
+                <button
+                  onClick={() => toggleDropdown(menu)}
+                  className="hover:text-yellow-300 flex items-center space-x-1"
+                >
+                  <span>{menu.charAt(0).toUpperCase() + menu.slice(1)}</span>
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+                {isDropdownOpen[menu] && (
+                  <div className="absolute mt-2 w-48 bg-white text-black shadow-lg rounded-md">
+                    <a href="#" className="block px-4 py-2 hover:bg-yellow-50">
+                      Option 1
+                    </a>
+                    <a href="#" className="block px-4 py-2 hover:bg-yellow-50">
+                      Option 2
+                    </a>
+                  </div>
+                )}
+              </div>
+            ))}
+
+            <a href="#" className="hover:text-yellow-300">
+              About Us
+            </a>
+            <a href="#" className="hover:text-yellow-300">
+              Contact Us
+            </a>
+          </div>
+
+          {/* Buttons */}
+          <div className="hidden md:flex space-x-4">
+            <button className="bg-yellow-500 text-white px-4 py-2 rounded-md hover:bg-yellow-600">
+              Register
+            </button>
+            <button className="border border-white text-white px-4 py-2 rounded-md hover:bg-yellow-500 hover:text-white">
+              Log In
+            </button>
+          </div>
+
+        
+          {/* Mobile Icons */}
+          <div className="md:hidden flex items-center space-x-4">
+            <FiSearch
+              className="cursor-pointer text-white"
+              onClick={() => toggleDropdown('search')}
+            />
+            <FiBell className="cursor-pointer text-white" />
+            <FiUser className="cursor-pointer text-white" />
+          </div>
         </div>
       </div>
+
+      {/* Search Dropdown - Positioned separately from the mobile menu */}
+      {isDropdownOpen.search && (
+        <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-full max-w-md bg-white text-black shadow-lg p-4 rounded-md z-30">
+          <input
+            type="text"
+            placeholder="Search..."
+            className="w-full p-2 border border-gray-300 rounded-md"
+          />
+        </div>
+      )}
 
       {/* Mobile Menu */}
       {isMenuOpen && (

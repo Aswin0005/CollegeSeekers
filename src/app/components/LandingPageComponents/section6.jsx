@@ -3,7 +3,7 @@ import React from 'react';
 
 const CollegeSteps = () => {
   return (
-    <section className="bg-[#8477FF14] py-12">
+    <section className="bg-[#8477FF14] py-12 hidden md:block">
       <div className="container mx-auto lg:px-20 text-center">
         {/* Heading */}
         <h2 className="text-3xl font-bold mb-4 text-left">
