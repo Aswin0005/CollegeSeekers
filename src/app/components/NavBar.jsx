@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { FiSearch, FiBell, FiUser } from 'react-icons/fi';
+import Auth from './LandingPageComponents/auth';
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -106,15 +107,9 @@ export default function NavBar() {
 
           {/* Buttons */}
           <div className="hidden md:flex space-x-4">
-            <button className="bg-yellow-500 text-white px-4 py-2 rounded-md hover:bg-yellow-600">
-              Register
-            </button>
-            <button className="border border-white text-white px-4 py-2 rounded-md hover:bg-yellow-500 hover:text-white">
-              Log In
-            </button>
+            <Auth />
           </div>
 
-        
           {/* Mobile Icons */}
           <div className="md:hidden flex items-center space-x-4">
             <FiSearch
@@ -173,12 +168,7 @@ export default function NavBar() {
               Contact Us
             </a>
             <div className="pt-4">
-              <button className="bg-yellow-500 text-white w-full px-4 py-2 rounded-md hover:bg-yellow-600 mb-2">
-                Register
-              </button>
-              <button className="border border-white text-white w-full px-4 py-2 rounded-md hover:bg-yellow-500">
-                Log In
-              </button>
+              <Auth />
             </div>
           </div>
         </div>
